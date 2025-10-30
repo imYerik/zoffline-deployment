@@ -73,7 +73,7 @@ echo "20" > ${ZWIFT_BASE}/storage/enable_bots.txt
 cp ${ZWIFT_BASE}/storage/bot_teams.txt ${BASE_DIR}/storage/bot.txt
 
 
-# Change zwift cert
+# Change zwift cert, import to Keychain and alwaystrust it.
 wget https://github.com/zoffline/zwift-offline/raw/master/ssl/cert-zwift-com.pem
 sed -n '29,53p' cert-zwift-com.pem >> ~/Library/Application\ Support/Zwift/data/cacert.pem
 
