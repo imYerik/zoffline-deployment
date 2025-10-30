@@ -1,9 +1,13 @@
+#!/bin/zsh
+
+
 ZWIFT_BASE=~/Documents/Zwift-offline
 mkdir -p ${ZWIFT_BASE}/scripts
 mkdir -p ${ZWIFT_BASE}/storage
 cd ${ZWIFT_BASE}
 
 cp zwift-update.sh ${ZWIFT_BASE}/scripts
+cp docker-compose.yml ${ZWIFT_BASE}/scripts
 
 # Add alias to .zshrc
 cat >> ~/.zshrc <<EOF
@@ -14,31 +18,6 @@ EOF
 source ~/.zshrc
 
 
-# Create zwift offline docker composed file
-cat >> ${ZWIFT_BASE}/scripts/docker-compose.yml << EOF
-version: "3.6"
-services:
-    zoffline:
-         image: zoffline/zoffline:latest
-         build:
-             context: .
-             dockerfile: Dockerfile
-         container_name: zoffline
-         environment:
-            - TZ=Europe/London
-         volumes:
-            - ~/Documents/Zwift-offline/storage:/usr/src/app/zwift-offline/storage
-         ports:
-            - 80:80
-            - 443:443
-            - 3024:3024/udp
-            - 3025:3025
-#            - 53:53/udp
-         restart: unless-stopped
-EOF
-
-
-
 # Modify hosts file 
 sudo chmod 777 /etc/hosts
 cat >> /etc/hosts << EOF
@@ -46,17 +25,6 @@ cat >> /etc/hosts << EOF
 127.0.0.1 us-or-rly101.zwift.com secure.zwift.com cdn.zwift.com launcher.zwift.com
 EOF
 
-# Zwift online script
-cat >> zwift-on.sh <<EOF
-cat /etc/hosts > ~/Downloads/host.bak 
-sed 's/127.0.0.1 us-or-rly101.zwift.com/#127.0.0.1 us-or-rly101.zwift.com/g' ~/Downloads/host.bak >/etc/hosts
-EOF
-
-# Zwift offline script
-cat >> zwift-off.sh <<EOF
-cat /etc/hosts > ~/Downloads/host.bak 
-sed 's/#127.0.0.1 us-or-rly101.zwift.com/127.0.0.1 us-or-rly101.zwift.com/g' ~/Downloads/host.bak >/etc/hosts
-EOF
 
 # Zwift offline Extra feature(Bots,Robopacer,leaderboards,etc.)
 unzip bots.zip -d ${ZWIFT_BASE}
