@@ -6,13 +6,13 @@ Zwift Offline 私服允许你在本地运行 Zwift 环境，无需连接到官�
 
 本项目主要用于macOS上快速安装、部署、更新 Zwift Offline服务，作为日常使用记录的备份；
 
-参考来自： https://github.com/zoffline/zwift-offline.git
+参考来自： [zwift-offline](https://github.com/zoffline/zwift-offline.git)
 
 ### 📁 文件说明
 
 | 文件               | 说明                                                                             |
 | ------------------ | -------------------------------------------------------------------------------- |
-| bots.zip           | Zwift offline bot 机器人文件包，来自[https://github.com/oldnapalm/zoffline-bots] |
+| bots.zip           | Zwift offline bot 机器人文件包，来自[zoffline-bots](https://github.com/oldnapalm/zoffline-bots) |
 | deploy-zoffline.sh | Zwift offline 安装部署快捷命令脚本集合                                               |
 | zwift-off.sh       | 切换到 Zwift offline 模式（修改 hosts 文件中 Zwift 域名指向 127.0.0.1）          |
 | cert-zwift-com.pem | Zwift 证书文件，用于 SSL/TLS 加密连接                                            |
@@ -34,13 +34,13 @@ Docker: Docker Desktop 20.10+
 
 确保你的 macOS 已安装 Docker Desktop：
 
-Docker 官网 下载安装 https://www.docker.com/products/docker-desktop
+Docker 官网 下载安装 [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 #### 2. 安装 Zwift 客户端
 
 确保你的 macOS 已安装 Zwift 客户端
 
-Zwift 官网 下载安装 https://www.zwift.com
+Zwift 官网 下载安装 [Zwift](https://www.zwift.com)
 
 #### 3. 部署 Zwift Offline
 
