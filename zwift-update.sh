@@ -95,7 +95,7 @@ check_and_start_with_inspect() {
 
 # 检查更新镜像,如果更新，则重新创建并启动容器
 if check_and_update_image $image_name $image_tag; then
-    docker-compose down && docker-compose -f "$compose_file" up -d 
+    docker-compose -f "$compose_file" down && docker-compose -f "$compose_file" up -d 
     # 清理旧镜像
     echo "✓ 清理旧镜像"
     docker image prune -f
